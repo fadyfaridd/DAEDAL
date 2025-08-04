@@ -20,7 +20,7 @@
 </div>
 <br>
 
-[![arXiv](https://img.shields.io/badge/arXiv-2505.xxxxx-b31b1b.svg)](https://arxiv.org/abs/2505.xxxxx) 
+[![arXiv](https://img.shields.io/badge/arXiv-2508.00819-b31b1b.svg)](https://arxiv.org/abs/2508.00819) 
 
 ---
 
@@ -108,7 +108,12 @@ sh scripts/eval_LLaDA_Baseline.sh
 
 If you find our work helpful, please consider giving a star ⭐ and citation 📝 
 ```bibtex
-
+@article{li2025beyondfixed,
+      title={Beyond Fixed: Variable-Length Denoising for Diffusion Large Language Models}, 
+      author={Jinsong Li and Xiaoyi Dong and Yuhang Zang and Yuhang Cao and Jiaqi Wang and Dahua Lin},
+      journal={arXiv preprint arXiv:2508.00819},
+      year={2025}
+}
 ```
 
 ## 💞 Acknowledgements
