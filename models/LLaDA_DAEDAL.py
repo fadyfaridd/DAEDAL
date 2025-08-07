@@ -90,7 +90,7 @@ def generate(
         )
         x[:, :prompt_length] = prompt.clone()
         prompt_index = x != mask_id
-        if dist.get_rank() == 0:
+        if not (dist.is_available() and dist.is_initialized()) or dist.get_rank() == 0:
             print("[Stage-1] Initial Length Adjustment")
         while True:
             total_lengths = prompt_length + gen_lengths
@@ -99,16 +99,16 @@ def generate(
             batch_eos_confidences = _calculate_eos_confidence(logits_pre, total_lengths, prompt_length, eos_check_tokens)
             sequences_to_expand = (batch_eos_confidences < eos_confidence_threshold) & (gen_lengths < max_gen_length)
             if not sequences_to_expand.any():
-                if dist.get_rank() == 0:
+                if not (dist.is_available() and dist.is_initialized()) or dist.get_rank() == 0:
                     print(f"All sequences' EOS confidence reach the threshold {eos_confidence_threshold} or max length.")
                 break
-            if dist.get_rank() == 0:
-                 print(f"Some sequences' EOS confidence ({[round(c, 4) for c in batch_eos_confidences.tolist()]}) < {eos_confidence_threshold}. Expand initial length.")
+            if not (dist.is_available() and dist.is_initialized()) or dist.get_rank() == 0:
+                 print(f"Some sequences' EOS confidence ({[round(c.item(), 4) for c in batch_eos_confidences]}) < {eos_confidence_threshold}. Expand initial length.")
             max_new_gen_len = gen_lengths.max().item()
             if sequences_to_expand.any():
                  max_new_gen_len = min(max_new_gen_len + expansion_factor, max_gen_length)
             if max_new_gen_len <= gen_lengths.max().item():
-                 if dist.get_rank() == 0:
+                 if not (dist.is_available() and dist.is_initialized()) or dist.get_rank() == 0:
                     print(f"WARNING: Cannot expand initial length further (already at max length: {max_gen_length}).")
                  break
             max_new_total_len = prompt_length + max_new_gen_len
@@ -127,7 +127,7 @@ def generate(
             x = new_x_tensor
             gen_lengths = new_gen_lengths
 
-        if dist.get_rank() == 0:
+        if not (dist.is_available() and dist.is_initialized()) or dist.get_rank() == 0:
             print(f"[Stage-2] Iterative Denoising and Mask Insertion")
 
         current_pos = torch.full((batch_size,), prompt_length, dtype=torch.long, device=device)
@@ -140,7 +140,7 @@ def generate(
             for i in range(batch_size):
                 if gen_lengths[i] >= max_gen_length and not denoise_only_mode[i]:
                     if current_pos[i] < total_lengths[i]:
-                        if dist.get_rank() == 0:
+                        if not (dist.is_available() and dist.is_initialized()) or dist.get_rank() == 0:
                             print(f"Sequence {i} has reached the max length {max_gen_length}. Entering denoise-only mode.")
                         denoise_only_mode[i] = True
 
@@ -254,7 +254,7 @@ def generate(
                     else:
                         break
             if torch.equal(x, x_before_step):
-                if dist.get_rank() == 0:
+                if not (dist.is_available() and dist.is_initialized()) or dist.get_rank() == 0:
                     print(f"WARNING: Sequence state is stagnant, forcing generation to end.")
                 break
         final_outputs = []

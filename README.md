@@ -4,7 +4,9 @@
   <img src="assets/daedal_logo.png" height=100>
 </p>
 
-<h1>Beyond Fixed: Variable-Length Denoising for Diffusion Large Language Models</h1>
+<h1>Beyond Fixed: Training-Free Variable-Length Denoising 
+<br>
+for Diffusion Large Language Models</h1>
 
 <div>
     <a href="https://li-jinsong.github.io/" target="_blank">Jinsong Li</a><sup>1,2</sup> | 
@@ -25,7 +27,7 @@
 ---
 
 
-<strong>💡 DAEDAL is a training-free denoising strategy that unlocks dynamic and variable-length generation for DLLMs, achieving performance comparable, and sometimes superior, to meticulously tuned fixed-length baselines.</strong>
+<strong>💡 DAEDAL is a `training-free` denoising strategy that unlocks dynamic and variable-length generation for DLLMs, achieving performance comparable, and sometimes superior, to meticulously tuned fixed-length baselines.</strong>
 
 <details><summary><strong>📖 Click for the full abstract of DAEDAL</strong></summary>
 
@@ -68,6 +70,32 @@ We introduce DAEDAL, a training-free, two-phase inference strategy designed to l
 DAEDAL allows the DLM to autonomously decide its own response length on a per-problem basis. By resolving the static length constraint, DAEDAL unlocks new potential for DLLMs, bridging a critical gap with their Autoregressive counterparts and paving the way for more efficient and capable generation.
 
 
+## 🎨 Visualization
+
+**🧑‍💻 User Input**
+```txt
+You are a math expert. You will be given a question to solve. Solve it step by step. Wrap the final answer in a \boxed{}.
+Respond in the following format:
+<reasoning>
+Your reasoning here
+</reasoning>
+<answer>
+\boxed{...}
+</answer>
+
+A juggler can juggle 16 balls.  Half of the balls are golf balls, and half of the golf balls are blue.  How many blue golf balls are there?
+```
+**🤖 Model Output**
+
+> - Dark blue background with white text: Tokens selected to be filled.
+> - Orange background: Tokens for expansion.
+> - White background: Previously filled tokens.
+> - Shade of the background color (for denoised tokens): Represents the confidence level.
+
+<div style="width: 100%; text-align: center; margin:auto;">
+    <img style="width:100%" src="assets/case.gif">
+</div>
+
 
 ## 🔧 Setup
 ### Setup repository and conda environment
@@ -108,11 +136,11 @@ sh scripts/eval_LLaDA_Baseline.sh
 
 If you find our work helpful, please consider giving a star ⭐ and citation 📝 
 ```bibtex
-@article{li2025beyondfixed,
-      title={Beyond Fixed: Variable-Length Denoising for Diffusion Large Language Models}, 
-      author={Jinsong Li and Xiaoyi Dong and Yuhang Zang and Yuhang Cao and Jiaqi Wang and Dahua Lin},
-      journal={arXiv preprint arXiv:2508.00819},
-      year={2025}
+@article{li2025beyond,
+  title={Beyond Fixed: Variable-Length Denoising for Diffusion Large Language Models},
+  author={Li, Jinsong and Dong, Xiaoyi and Zang, Yuhang and Cao, Yuhang and Wang, Jiaqi and Lin, Dahua},
+  journal={arXiv preprint arXiv:2508.00819},
+  year={2025}
 }
 ```
 
